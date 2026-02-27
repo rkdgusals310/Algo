@@ -11,7 +11,7 @@ public class Main{
         int m=s.nextInt();
         arr=new int[m];
         visited=new boolean[n];
-        //dfs 사용해야함
+
         dfs(n,m,0);
         System.out.print(sb);
     }
@@ -23,7 +23,6 @@ public class Main{
             }sb.append("\n");
             return;
         }
-        
         for(int i=0;i<n;i++){
             
             if(!visited[i]){
@@ -31,11 +30,7 @@ public class Main{
                 arr[depth]=i+1;
                 dfs(n,m,depth+1);
                 visited[i]=false;
-            }
-            
-            
-            
-
+            }   
         }
     }
 }
