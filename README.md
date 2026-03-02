@@ -1,2 +1,2 @@
 # Algo
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+해당 저장소는 알고리즘 문제 풀이에 대한 간단한 기록을 남기는 용도입니다.
