@@ -29,7 +29,7 @@ public class Main{
             if(!visited[i]){
                 arr[depth]=i+1;
                 visited[i]=true;
-                dfs(n,m,depth+1,i+1);
+                dfs(n,m,depth+1,i);
                 visited[i]=false;
                 
             }
