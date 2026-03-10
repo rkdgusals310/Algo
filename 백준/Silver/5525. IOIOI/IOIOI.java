@@ -3,20 +3,44 @@ import java.util.*;
 public class Main{
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
-        
+
         int n=sc.nextInt();
         int m=sc.nextInt();
-        
-        int cnt=0;
-        String str="IOI";
-        for(int i=1;i<n;i++){
-            str+="OI";
-        }
-        
         String s=sc.next();
-
-        for(int i=0;i<=m-str.length();i++){
-            if(s.substring(i,i+str.length()).equals(str))cnt++;
+        int cnt=0;
+        int start=0;
+        int index=0;
+        int t=0;
+        while(true){
+            char ch=s.charAt(index);
+            if(start==0&&ch=='I'){
+                start=1;
+                index++;
+            }
+            else if(start==0&&ch=='O'){
+                index++;
+                continue;
+            }
+            else{
+                if(start%2==0&&ch=='I'){index++;start++;}
+                else if(start%2==1&&ch=='O'){index++;start++;}
+                else{
+                    t=(start-1)/2;
+                    if(t>=n){
+                        cnt+=t-n+1;
+                    }
+                    
+                    start=0;
+                }
+            }
+            
+            if(index==s.length()){
+                    t=(start-1)/2;
+                    if(t>=n){
+                        cnt+=t-n+1;
+                }
+                break;
+            }
         }
         
         System.out.print(cnt);
