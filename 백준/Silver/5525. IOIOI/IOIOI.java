@@ -11,6 +11,7 @@ public class Main{
         Scanner sc=new Scanner(System.in);
         
         int n=sc.nextInt();
+        if(n<1||n>100)return;
         int cnt=0;
         String str="IOI";
         for(int i=1;i<n;i++){
@@ -18,6 +19,7 @@ public class Main{
         }
         
         int m=sc.nextInt();
+        if(m<(2*n+1)||n>10000)return;
         String s=sc.next();
 
         for(int i=0;i<=m-str.length();i++){
