@@ -11,7 +11,7 @@ public class Main{
         int start=0;
         int index=0;
         int t=0;
-        while(true){
+        while(index<s.length()){
             char ch=s.charAt(index);
             if(start==0&&ch=='I'){
                 start=1;
@@ -33,16 +33,12 @@ public class Main{
                     start=0;
                 }
             }
-            
-            if(index==s.length()){
-                    t=(start-1)/2;
+         
+        }
+        t=(start-1)/2;
                     if(t>=n){
                         cnt+=t-n+1;
-                }
-                break;
-            }
-        }
-        
+                    }
         System.out.print(cnt);
     }
 }
