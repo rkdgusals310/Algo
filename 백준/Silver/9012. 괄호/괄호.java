@@ -31,10 +31,7 @@ public class Main{
                 else{
                     if(stack.peek()=='('&&c==')')stack.pop();
                     else if(stack.peek()=='('&&c=='(')stack.push(c);
-                    else {
-                        breakN=true;
-                        break;
-                    }
+                    
                 }
             }
             if(breakN||!stack.isEmpty())answer="NO";
