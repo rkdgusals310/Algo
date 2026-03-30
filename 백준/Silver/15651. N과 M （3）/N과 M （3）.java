@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Main{
     public static int arr[];
-    public static boolean visited[];
     public static StringBuilder sb=new StringBuilder();
     
     public static void main(String args[]){
@@ -13,7 +12,6 @@ public class Main{
         int m=s.nextInt();
         
         arr=new int[m];
-        visited=new boolean[n];
         
         dfs(n,m,0);
         System.out.print(sb);
