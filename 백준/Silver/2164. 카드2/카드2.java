@@ -11,7 +11,7 @@ public class Main{
         
         while(q.size()!=1){
             q.poll();
-            if(q.size()==1)break;
+   
             q.offer(q.poll());
         }
         System.out.print(q.poll());
