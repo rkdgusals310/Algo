@@ -1,25 +1,28 @@
 import java.util.*;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-
-        int[][] people = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            people[i][0] = sc.nextInt();
-            people[i][1] = sc.nextInt(); 
+public class Main{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int kg[]=new int[n];
+        int cm[]=new int[n];
+        int rank[]=new int[n];
+        Arrays.fill(rank,1);
+        for(int i=0;i<n;i++){
+            kg[i]=s.nextInt();
+            cm[i]=s.nextInt();
         }
-
-        for (int i = 0; i < n; i++) {
-            int rank = 1;
-            for (int j = 0; j < n; j++) {
-                if (i == j) continue;
-                if (people[i][0] < people[j][0] && people[i][1] < people[j][1]) {
-                    rank++;
+        
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(kg[i]<kg[j]&&cm[i]<cm[j]){
+                    rank[i]++;
                 }
             }
-            System.out.print(rank + " ");
+        }
+        for(int i=0;i<n;i++){
+            System.out.print(rank[i]+" ");
         }
     }
+    
 }
