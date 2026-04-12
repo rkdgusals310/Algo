@@ -72,12 +72,12 @@ public class Main {
         int chocolate = 0;
 
         while (true) {
-            blowAllHeaters();
-            controlTemperature();
+            blowAll();
+            controlTemp();
             decreaseOuter();
             chocolate++;
 
-            if (allCheckCellsWarm()) {
+            if (allCheck()) {
                 System.out.println(chocolate);
                 return;
             }
@@ -96,7 +96,7 @@ public class Main {
         return DOWN;
     }
 
-    static void blowAllHeaters() {
+    static void blowAll() {
         for (Heater h : heaters) {
             blow(h);
         }
@@ -138,90 +138,90 @@ public class Main {
         List<int[]> list = new ArrayList<>(3);
 
         if (dir == RIGHT) {
-            if (canMoveRightUp(r, c)) list.add(new int[]{r - 1, c + 1});
-            if (canMoveStraight(r, c, RIGHT)) list.add(new int[]{r, c + 1});
-            if (canMoveRightDown(r, c)) list.add(new int[]{r + 1, c + 1});
+            if (moveRightUp(r, c)) list.add(new int[]{r - 1, c + 1});
+            if (moveStraight(r, c, RIGHT)) list.add(new int[]{r, c + 1});
+            if (moveRightDown(r, c)) list.add(new int[]{r + 1, c + 1});
         } else if (dir == LEFT) {
-            if (canMoveLeftUp(r, c)) list.add(new int[]{r - 1, c - 1});
-            if (canMoveStraight(r, c, LEFT)) list.add(new int[]{r, c - 1});
-            if (canMoveLeftDown(r, c)) list.add(new int[]{r + 1, c - 1});
+            if (moveLeftUp(r, c)) list.add(new int[]{r - 1, c - 1});
+            if (moveStraight(r, c, LEFT)) list.add(new int[]{r, c - 1});
+            if (moveLeftDown(r, c)) list.add(new int[]{r + 1, c - 1});
         } else if (dir == UP) {
-            if (canMoveUpLeft(r, c)) list.add(new int[]{r - 1, c - 1});
-            if (canMoveStraight(r, c, UP)) list.add(new int[]{r - 1, c});
-            if (canMoveUpRight(r, c)) list.add(new int[]{r - 1, c + 1});
+            if (moveUpLeft(r, c)) list.add(new int[]{r - 1, c - 1});
+            if (moveStraight(r, c, UP)) list.add(new int[]{r - 1, c});
+            if (moveUpRight(r, c)) list.add(new int[]{r - 1, c + 1});
         } else {
-            if (canMoveDownLeft(r, c)) list.add(new int[]{r + 1, c - 1});
-            if (canMoveStraight(r, c, DOWN)) list.add(new int[]{r + 1, c});
-            if (canMoveDownRight(r, c)) list.add(new int[]{r + 1, c + 1});
+            if (moveDownLeft(r, c)) list.add(new int[]{r + 1, c - 1});
+            if (moveStraight(r, c, DOWN)) list.add(new int[]{r + 1, c});
+            if (moveDownRight(r, c)) list.add(new int[]{r + 1, c + 1});
         }
 
         return list;
     }
 
-    static boolean canMoveStraight(int r, int c, int dir) {
+    static boolean moveStraight(int r, int c, int dir) {
         int nr = r + dr[dir];
         int nc = c + dc[dir];
         if (!inRange(nr, nc)) return false;
         return !wall[r][c][dir];
     }
 
-    static boolean canMoveRightUp(int r, int c) {
+    static boolean moveRightUp(int r, int c) {
         if (!inRange(r - 1, c) || !inRange(r - 1, c + 1)) return false;
         if (wall[r][c][UP]) return false;
         if (wall[r - 1][c][RIGHT]) return false;
         return true;
     }
 
-    static boolean canMoveRightDown(int r, int c) {
+    static boolean moveRightDown(int r, int c) {
         if (!inRange(r + 1, c) || !inRange(r + 1, c + 1)) return false;
         if (wall[r][c][DOWN]) return false;
         if (wall[r + 1][c][RIGHT]) return false;
         return true;
     }
 
-    static boolean canMoveLeftUp(int r, int c) {
+    static boolean moveLeftUp(int r, int c) {
         if (!inRange(r - 1, c) || !inRange(r - 1, c - 1)) return false;
         if (wall[r][c][UP]) return false;
         if (wall[r - 1][c][LEFT]) return false;
         return true;
     }
 
-    static boolean canMoveLeftDown(int r, int c) {
+    static boolean moveLeftDown(int r, int c) {
         if (!inRange(r + 1, c) || !inRange(r + 1, c - 1)) return false;
         if (wall[r][c][DOWN]) return false;
         if (wall[r + 1][c][LEFT]) return false;
         return true;
     }
 
-    static boolean canMoveUpLeft(int r, int c) {
+    static boolean moveUpLeft(int r, int c) {
         if (!inRange(r, c - 1) || !inRange(r - 1, c - 1)) return false;
         if (wall[r][c][LEFT]) return false;
         if (wall[r][c - 1][UP]) return false;
         return true;
     }
 
-    static boolean canMoveUpRight(int r, int c) {
+    static boolean moveUpRight(int r, int c) {
         if (!inRange(r, c + 1) || !inRange(r - 1, c + 1)) return false;
         if (wall[r][c][RIGHT]) return false;
         if (wall[r][c + 1][UP]) return false;
         return true;
     }
 
-    static boolean canMoveDownLeft(int r, int c) {
+    static boolean moveDownLeft(int r, int c) {
         if (!inRange(r, c - 1) || !inRange(r + 1, c - 1)) return false;
         if (wall[r][c][LEFT]) return false;
         if (wall[r][c - 1][DOWN]) return false;
         return true;
     }
 
-    static boolean canMoveDownRight(int r, int c) {
+    static boolean moveDownRight(int r, int c) {
         if (!inRange(r, c + 1) || !inRange(r + 1, c + 1)) return false;
         if (wall[r][c][RIGHT]) return false;
         if (wall[r][c + 1][DOWN]) return false;
         return true;
     }
 
-    static void controlTemperature() {
+    static void controlTemp() {
         int[][] diff = new int[R][C];
 
         for (int r = 0; r < R; r++) {
@@ -267,7 +267,7 @@ public class Main {
         }
     }
 
-    static boolean allCheckCellsWarm() {
+    static boolean allCheck() {
         for (int[] cell : checks) {
             if (temp[cell[0]][cell[1]] < K) {
                 return false;
