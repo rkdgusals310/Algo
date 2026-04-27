@@ -28,6 +28,5 @@ public class Main {
         }
 
         System.out.println(dp[N][K]);
-        sc.close();
     }
 }
