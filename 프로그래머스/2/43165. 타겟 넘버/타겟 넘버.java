@@ -1,9 +1,11 @@
 class Solution {
+    public boolean visited[][];
     public int cnt=0;
-
+    public int sum[];
     public int solution(int[] numbers, int target) {
         int answer = 0;
-
+        visited=new boolean[numbers.length][2]; // - + 
+        sum=new int[numbers.length];
         
         dfs(0,0,numbers,target);
         
