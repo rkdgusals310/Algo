@@ -9,16 +9,15 @@ class Solution
 		Scanner sc = new Scanner(System.in);
 		int T;
 		T=sc.nextInt();
-	
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int sum=0;
-            for(int i=0;i<10;i++){
-            	int n=sc.nextInt();
-                if(n%2!=0)sum+=n;
+			int sum=0;
+			for(int i=0;i<10;i++){
+            	int num=sc.nextInt();
+                if(num%2!=0)sum+=num;
             }
-            sb.append("#"+test_case+" ").append(sum).append("\n");
+			sb.append("#"+test_case+" ").append(sum).append("\n");
 		}
         System.out.print(sb);
 	}
