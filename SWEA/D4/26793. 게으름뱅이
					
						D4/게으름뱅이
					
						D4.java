@@ -1,49 +1,35 @@
-import java.io.*;
 import java.util.*;
 
-public class Solution {
 
-    static class Task {
-        int time;
-        int deadline;
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		StringBuilder sb=new StringBuilder();
+		Scanner sc = new Scanner(System.in);
+		int T;
+		T=sc.nextInt();
 
-        Task(int time, int deadline) {
-            this.time = time;
-            this.deadline = deadline;
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-
-        int TC = Integer.parseInt(br.readLine());
-
-        for (int tc = 0; tc < TC; tc++) {
-            int N = Integer.parseInt(br.readLine());
-
-            Task[] tasks = new Task[N];
-
-            for (int i = 0; i < N; i++) {
-                StringTokenizer st = new StringTokenizer(br.readLine());
-                int time = Integer.parseInt(st.nextToken());
-                int deadline = Integer.parseInt(st.nextToken());
-
-                tasks[i] = new Task(time, deadline);
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+            int n=sc.nextInt();
+            int arr[][]=new int[n][2];
+            for(int i=0;i<n;i++){
+            	arr[i][0]=sc.nextInt(); // 걸리는 시간
+                arr[i][1]=sc.nextInt(); // 데드 라인
             }
-
-            Arrays.sort(tasks, (a, b) -> a.deadline - b.deadline);
-
-            int latest = Integer.MAX_VALUE;
-
-            for (int i = N - 1; i >= 0; i--) {
-                latest = Math.min(latest, tasks[i].deadline);
-                latest -= tasks[i].time;
+            Arrays.sort(arr,(a,b)->
+            	Integer.compare(a[1],b[1])
+            );
+            int total=Integer.MAX_VALUE;
+            for(int i=arr.length-1;i>=0;i--){
+            	total=Math.min(total,arr[i][1]);
+                total-=arr[i][0];
             }
+            total=total==0?0:total;
+            sb.append(total).append("\n");
 
-            sb.append(latest).append('\n');
-        }
-
+		}
         System.out.print(sb);
-    }
+	}
 }
