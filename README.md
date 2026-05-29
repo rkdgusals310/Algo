@@ -20,4 +20,20 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0322-coin-change](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Medium/0322-coin-change/) | Medium |
+## Math
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0224-basic-calculator](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Hard/0224-basic-calculator/) | Hard |
+## String
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0224-basic-calculator](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Hard/0224-basic-calculator/) | Hard |
+## Stack
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0224-basic-calculator](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Hard/0224-basic-calculator/) | Hard |
+## Recursion
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0224-basic-calculator](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Hard/0224-basic-calculator/) | Hard |
 <!---LeetCode Topics End-->
