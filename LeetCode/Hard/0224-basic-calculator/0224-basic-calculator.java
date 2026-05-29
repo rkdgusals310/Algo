@@ -1,46 +1,74 @@
 class Solution {
     public int calculate(String s) {
-        int result = 0;
-        int sign = 1;
-        int num = 0;
+        Queue<String> q=new LinkedList<>();
+        Stack<String> stack=new Stack<>();
+        Stack<String> temp=new Stack<>();
 
-        Stack<Integer> stack = new Stack<>();
+        String n="";
+        int cnt=0;
+        for(String str:s.split("")){
+            if(str.equals(" "))continue;
 
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
+            if(!str.equals("(")&&!str.equals(")")&&!str.equals("-")&&!str.equals("+")){
+                n+=str;
+                cnt++;
+            }
+            else{
+                if(cnt!=0){
+                    q.offer(n);
+                    cnt=0;
+                    n="";
+                }
+                q.offer(str);
+            }
+        }
+        if(cnt!=0)q.offer(n);
+        while(!q.isEmpty()){
+            String basic=q.poll();
+            if(basic.equals(")")){
+                while(true){
+                    String t=stack.pop();
+                    if(t.equals("(")){
+                        stack.push(cal(temp));
+                        break;
+                    }
+                    temp.push(t);
+                }
+                
+            }
+            else {
+                stack.push(basic);
+            }
+        }
+        while(!stack.isEmpty())temp.push(stack.pop());
+        return Integer.parseInt(cal(temp));
 
-            if (Character.isDigit(c)) {
-                num = num * 10 + (c - '0');
-            } 
-            else if (c == '+') {
-                result += sign * num;
-                num = 0;
-                sign = 1;
-            } 
-            else if (c == '-') {
-                result += sign * num;
-                num = 0;
-                sign = -1;
-            } 
-            else if (c == '(') {
-                stack.push(result);
-                stack.push(sign);
+    }
+    public String cal(Stack<String> stack){
+        int num=0;
+        String op="*";
 
-                result = 0;
-                sign = 1;
-            } 
-            else if (c == ')') {
-                result += sign * num;
-                num = 0;
-
-                int beforeSign = stack.pop();
-                int beforeResult = stack.pop();
-
-                result = beforeResult + beforeSign * result;
+        while(!stack.isEmpty()){
+            String ch=stack.pop();
+            
+            if(ch.equals("+")){
+                op="+";
+            }
+            else if(ch.equals("-")){
+                op="-";
+            }
+            else{
+                if(op.equals("*")){
+                    num=Long.parseLong(ch);
+                }
+                else{
+                    if(op.equals("+"))num+=Long.parseLong(ch);
+                    else num-=Long.parseLong(ch);
+                    op="*";
+                }
             }
         }
 
-        result += sign * num;
-        return result;
+        return ""+num;
     }
 }
