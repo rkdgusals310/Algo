@@ -45,7 +45,7 @@ class Solution {
 
     }
     public String cal(Stack<String> stack){
-        int num=0;
+        long num=0;
         String op="*";
 
         while(!stack.isEmpty()){
