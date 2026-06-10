@@ -6,6 +6,7 @@
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0049-group-anagrams](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Medium/0049-group-anagrams/) | Medium |
 | [0162-find-peak-element](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Medium/0162-find-peak-element/) | Medium |
 | [0322-coin-change](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Medium/0322-coin-change/) | Medium |
 ## Binary Search
@@ -27,6 +28,7 @@
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0049-group-anagrams](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Medium/0049-group-anagrams/) | Medium |
 | [0224-basic-calculator](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Hard/0224-basic-calculator/) | Hard |
 ## Stack
 | Problem Name | Difficulty |
@@ -36,4 +38,12 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0224-basic-calculator](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Hard/0224-basic-calculator/) | Hard |
+## Hash Table
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0049-group-anagrams](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Medium/0049-group-anagrams/) | Medium |
+## Sorting
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0049-group-anagrams](https://github.com/rkdgusals310/Algo/tree/main/LeetCode/Medium/0049-group-anagrams/) | Medium |
 <!---LeetCode Topics End-->
