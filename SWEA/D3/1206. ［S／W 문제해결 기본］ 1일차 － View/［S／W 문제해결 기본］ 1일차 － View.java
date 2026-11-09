@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.io.FileInputStream;
-import java.util.Arrays;
 
 class Solution
 {
@@ -18,10 +17,10 @@ class Solution
             }
             int ok=0;
             for(int i=2;i<num-2;i++){
-                int temp[]={arr[i-2],arr[i-1],arr[i+1],arr[i+2]};
-                Arrays.sort(temp);
-                if(arr[i]>temp[3]){
-                	ok+=(arr[i]-temp[3]);
+                int temp=Math.max(Math.max(arr[i-2],arr[i-1]),Math.max(arr[i+1],arr[i+2]));
+
+                if(arr[i]>temp){
+                	ok+=(arr[i]-temp);
                 }
             }
             
