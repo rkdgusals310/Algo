@@ -1,48 +1,33 @@
-import java.util.*;
+import java.util.Scanner;
+import java.io.FileInputStream;
+
 class Solution
 {
 	public static void main(String args[]) throws Exception
 	{
-		 
 		Scanner sc = new Scanner(System.in);
-        StringBuilder sb=new StringBuilder();
 		int T;
 		T=sc.nextInt();
-        int size=1000;
-		int arr[]=new int[size];	
+
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            
-            int max=0;
-            int num=0;
-            int cnt=0;
             int t=sc.nextInt();
-	
-            for(int i=0;i<size;i++){
-                arr[i]=sc.nextInt();
+            int num[]=new int[101];
+            for(int i=0;i<1000;i++){
+            	num[sc.nextInt()]++;
             }
-    		        
-            Arrays.sort(arr);
-            
-            for(int i=1;i<size;i++){
-            	
-                if(arr[i]==arr[i-1]){
-                    cnt++;
+            int max=0;
+            int index=0;
+            for(int i=0;i<101;i++){
+            	if(num[i]>max){
+                	index=i;
+                    max=num[i];
                 }
-                else{
-                    if(cnt>=max&&cnt!=0){
-                    	max=cnt;
-                        num=arr[i-1];
-                    }
-               		cnt=0;
+                else if(num[i]==max){
+                	index=i;
                 }
             }
-            if(max==0){
-            	num=arr[size-1];
-            }
-            sb.append("#"+t+" ").append(num).append("\n");
-            //System.out.println(Arrays.toString(arr));
+            System.out.println("#"+t+" "+index);
 		}
-        System.out.print(sb);
 	}
 }
