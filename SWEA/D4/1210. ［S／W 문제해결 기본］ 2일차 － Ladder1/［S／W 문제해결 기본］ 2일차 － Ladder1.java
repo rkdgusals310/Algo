@@ -1,54 +1,53 @@
 import java.util.Scanner;
 import java.io.FileInputStream;
 
+
 class Solution
 {
 	public static void main(String args[]) throws Exception
 	{
 		Scanner sc = new Scanner(System.in);
-        StringBuilder sb=new StringBuilder();
-        
-		int T=10;
-		
+		int T;
+		T=10;
+
+
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int t=sc.nextInt();
-            
-            int map[][]=new int[100][100];
-            
-            int startX=0;
-            int startY=0;
-            
+           int t=sc.nextInt();
+            int arr[][]=new int[100][100];
+            int y=0;
+            int x=99;
             for(int i=0;i<100;i++){
             	for(int j=0;j<100;j++){
-                    map[i][j]=sc.nextInt();
-                	if(map[i][j]==2){
-                    	startX=j;
-                        startY=i;
-                    }
+                	arr[i][j]=sc.nextInt();
+                    if(arr[i][j]==2)y=j;
                 }
             }
-            int dx[]={-1,1,0};
-            int dy[]={0,0,-1};
-            
-            while(true){
-                if(startY==0)break;
-            	for(int i=0;i<3;i++){
-                	int nx=dx[i]+startX;
-                    int ny=dy[i]+startY;
-                    
+            int dx[]={0,0,-1};
+            int dy[]={-1,1,0};
+            int nx=x;
+            int ny=y;
+            arr[nx][ny]=0;
+             while(true){
+             	if(x==0){
+                	break;
+                }
+
+                for(int i=0;i<3;i++){
+                	nx=x+dx[i];
+                    ny=y+dy[i];
                     if(nx>=0&&nx<100&&ny>=0&&ny<100){
-                        if(map[ny][nx]!=0){
-                        	startX=nx;
-                       	 	startY=ny;
-                            map[startY][startX]=0;
+                        if(arr[nx][ny]!=0){
+                            arr[nx][ny]=0;
+                        	x=nx;
+                        	y=ny;
                         	break;
                         }
-                        
+                    	
                     }
                 }
-            }
-			sb.append("#"+t+" "+startX).append("\n");
-		}System.out.print(sb);
+             }
+            System.out.println("#"+test_case+" "+y);
+		}
 	}
 }
