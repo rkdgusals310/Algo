@@ -23,6 +23,9 @@ class Solution
             int row=0;
             int col=0;
             int max=0;
+            int cro1=0;
+            int cro2=0;
+            
              for(int i=0;i<100;i++){
                  row=0;
                  col=0;
@@ -32,16 +35,12 @@ class Solution
                 }
                 max=max>row?max:row;
                 max=max>col?max:col;
+                cro1+=num[i][i];
+                cro2+=num[i][99-i];
             }
-            int cro1=0;
-            int cro2=0;
-            
-            for(int j=0;j<100;j++){
-                	cro1+=num[j][j];
-                    cro2+=num[j][99-j];
-                }
             max=max>cro1?max:cro1;
             max=max>cro2?max:cro2;
+            
 			System.out.println("#"+t+" "+max);
 		}
 	}
