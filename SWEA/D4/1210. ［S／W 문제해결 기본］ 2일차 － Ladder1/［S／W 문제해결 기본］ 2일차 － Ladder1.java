@@ -13,7 +13,7 @@ class Solution
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-           int t=sc.nextInt();
+            int t=sc.nextInt();
             int arr[][]=new int[100][100];
             int y=0;
             int x=99;
@@ -27,7 +27,6 @@ class Solution
             int dy[]={-1,1,0};
             int nx=x;
             int ny=y;
-            arr[nx][ny]=0;
              while(true){
              	if(x==0){
                 	break;
