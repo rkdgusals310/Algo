@@ -19,25 +19,25 @@ class Solution
             String ch2[]=str2.split("");
             
             int start=0;
-            int len=str.length();
+            int len=str.length()-1;
             int cnt=0;
             
             for(String s2:ch2){
-            	if(start==len){
-                    start=0;
-                	cnt++;
-                }
+            	
                 if(s2.equals(ch[start])){
-                	start++;
+                	if(start==len){
+                        start=0;
+                        cnt++;
+                        continue;
+                    }
+                    start++;
                 }
                 else{
                 	start=0;
-                    if(s2.equals(ch[start])){
-                		start++;
-                    }
+                     if(s2.equals(ch[start])){ start++;}
                 }
             }
-            if(start==len)cnt++;
+
             System.out.println("#"+t+" "+cnt);
 		}
 	}
