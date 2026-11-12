@@ -19,22 +19,19 @@ class Solution
             String ch2[]=str2.split("");
             
             int start=0;
-            int len=str.length()-1;
+            int len=str.length();
             int cnt=0;
             
-            for(String s2:ch2){
-            	
-                if(s2.equals(ch[start])){
-                	if(start==len){
-                        start=0;
-                        cnt++;
-                        continue;
+            for(int i=0;i<ch2.length-len+1;i++){
+            	int n=0;
+                for(String s:ch){
+                	if(ch2[i+n].equals(s)){
+                    	n++;
+                        if(n==len)cnt++;
                     }
-                    start++;
-                }
-                else{
-                	start=0;
-                     if(s2.equals(ch[start])){ start++;}
+                    else{
+                    	break;
+                    }
                 }
             }
 
