@@ -1,34 +1,44 @@
-import java.util.*;
+
+import java.util.Scanner;
+import java.io.FileInputStream;
+
 class Solution
 {
 	public static void main(String args[]) throws Exception
 	{
 		Scanner sc = new Scanner(System.in);
-        StringBuilder sb=new StringBuilder();
-        
-		for(int test_case = 1; test_case <= 10; test_case++)
-        {
-            int T=sc.nextInt();
-            String s=sc.next();
+		int T;
+		T=10;
+
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+			int t=sc.nextInt();
             String str=sc.next();
-            int num=0;
+            String ch[]=str.split("");
+            String str2=sc.next();
+            String ch2[]=str2.split("");
+            
+            int start=0;
+            int len=str.length();
             int cnt=0;
-            for(char ch:str.toCharArray()){
-            	if(ch==s.charAt(num)){
-                    if(num==(s.length()-1)){
-                    	num=0;
-                        cnt++;
-                        continue;
-                    }
-                    num++;
+            
+            for(String s2:ch2){
+            	if(start==len){
+                    start=0;
+                	cnt++;
                 }
-                else {
-                	if(ch==s.charAt(0))num=1;
-                    else num=0;
+                if(s2.equals(ch[start])){
+                	start++;
+                }
+                else{
+                	start=0;
+                    if(s2.equals(ch[start])){
+                		start++;
+                    }
                 }
             }
-            sb.append("#"+T+" "+cnt).append("\n");
+            if(start==len)cnt++;
+            System.out.println("#"+t+" "+cnt);
 		}
-        System.out.print(sb);
 	}
 }
