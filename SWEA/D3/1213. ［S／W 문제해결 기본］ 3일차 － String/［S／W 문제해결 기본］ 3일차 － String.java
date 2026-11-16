@@ -2,6 +2,7 @@
 import java.util.Scanner;
 import java.io.FileInputStream;
 
+
 class Solution
 {
 	public static void main(String args[]) throws Exception
@@ -12,27 +13,23 @@ class Solution
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-			int t=sc.nextInt();
+            int t=sc.nextInt();
+            
+            String s=sc.next();
             String str=sc.next();
-            String str2=sc.next();
-
-            int len=str.length();
             int cnt=0;
             
-            for(int i=0;i<=str2.length()-len;i++){
-            	int n=0;
-                for(char s:str.toCharArray()){
-                	if(str2.charAt(i+n)==s){
-                    	n++;
-                        if(n==len)cnt++;
-                    }
-                    else{
-                    	break;
-                    }
-                }
+            while(true){
+                int check=str.indexOf(s);
+                
+                if(check==-1)break;
+                
+                str=str.substring(check+1);
+                cnt++;
             }
-
             System.out.println("#"+t+" "+cnt);
+			
+
 		}
 	}
 }
