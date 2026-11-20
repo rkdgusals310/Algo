@@ -67,10 +67,8 @@ class Solution {
                 cnt++;
             }
             if(breakN==0){
-                for(int k=0;k<Integer.parseInt(str[1]);k++){
-                    x+=dx[index];
-                    y+=dy[index];
-                }
+                x=nx;
+                y=ny;
             }
             
         }
